@@ -14,6 +14,9 @@ CREATE DATABASE IF NOT EXISTS boo;
 /* DB auswählen */
 #USE boo; -- oder boo.xxx
 
+/* Tabelle test löschen, falls vorhanden*/
+DROP TABLE IF EXISTS boo.test;
+
 /* Tabelle anlegen, falls noch nicht vorhanden */
 CREATE TABLE IF NOT EXISTS boo.test
 (
@@ -21,7 +24,6 @@ CREATE TABLE IF NOT EXISTS boo.test
 	age INT NOT NULL DEFAULT 0
 );
 
-#test
 
 /* Struktur der Tabelle anzeigen */
 DESCRIBE boo.test;
