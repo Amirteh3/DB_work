@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS boo.test
 	age INT NOT NULL DEFAULT 0
 );
 
+#test
 
 /* Struktur der Tabelle anzeigen */
 DESCRIBE boo.test;
