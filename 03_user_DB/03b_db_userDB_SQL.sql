@@ -32,7 +32,7 @@ VALUES
 /* Inhalte : Ergebnistabelle */
 SELECT * FROM boo.users;
 
-/* Änderungen an bestehender Tabelle */
+/* Änderungen an bestehender Tabelle / Struktur*/
 ALTER TABLE 
     boo.users
 ADD
@@ -42,8 +42,9 @@ ADD
 /* Struktur */
 DESCRIBE boo.users;
 
-
-UPDATE boo.users SET user_plz = 70367; #????
+/* Update vo Daten */
+UPDATE boo.users SET user_plz = 70367 WHERE first_name = "Max"; 
+UPDATE boo.users SET user_plz = 70462 WHERE id = 2; 
 
 /* Inhalte : Ergebnistabelle */
 SELECT * FROM boo.users;
