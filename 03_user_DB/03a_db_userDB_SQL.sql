@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS boo.users
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(20) NOT NULL UNIQUE,
+    user_pwd VARCHAR(40) NOT NULL,
     family_name VARCHAR(20) NOT NULL,
     first_name VARCHAR(20) NOT NULL
 );
@@ -19,10 +20,15 @@ CREATE TABLE IF NOT EXISTS boo.users
 DESCRIBE boo.users;
 
 /* Daten */
-INSERT INTO boo.users(user_name,family_name,first_name) VALUES ("max", "Max", "Mütze");
-INSERT INTO boo.users(user_name,family_name,first_name) VALUES ("maxine", "Maxine", "Mützerich");
+-- Nachteil: PWDs liegen offen! 
+INSERT INTO 
+    boo.users(user_name,user_pwd,family_name,first_name) 
+VALUES 
+    ("max","1234","Mütze","Max"),
+    ("maxine","#7xD0","Mützerich","Maxine"),
+    ("maxl","user1234","Mützerich","Max")
+;
 
-INSERT INTO boo.users(user_name,family_name,first_name) VALUES ("maxl", "Max", "Mützerich");
 
 /* Inhalte : Ergebnistabelle */
 SELECT * FROM boo.users;
