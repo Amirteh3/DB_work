@@ -45,7 +45,7 @@ LIMIT 40
 
 -- Eingrenzen/Filtern WHERE & LIKE + Parameter
 -- Unscharfe Suche 
-
+/*
 SELECT
 	ticker AS "SYM",
     c_name AS "Unternehmen",
@@ -77,3 +77,20 @@ WHERE industry LIKE "%ment" AND industry NOT LIKE "%ipment" AND industry NOT LIK
 ORDER BY industry ASC
 LIMIT 20
 ;
+*/
+
+--  Eingrenzen/Filtern WHERE & IN / NOT IN (Suchsets)
+
+SELECT 
+    ticker AS "SYM",
+    c_name AS "Unternehmen",
+    sector AS "Sektor",
+    industry AS "Branche"
+FROM stocks.ccc
+#WHERE sector = "Financials" 
+#WHERE sector = "Financials" AND industry NOT IN ("Insurance","Banks") 
+WHERE industry IN ("Banks","Beverages")
+ORDER BY industry ASC
+LIMIT 400 -- X Zeilen ab 0
+;
+
