@@ -21,13 +21,13 @@ SELECT
 FROM boo.cats
 #WHERE id = 1 
 #WHERE fur_color = "grey"
-#WHERE fur_color = "alpinaweiss"
-WHERE age >= 30
+WHERE fur_color = "alpinaweiss"
+#WHERE age >= 30
 ; 
 
 /* Delete - DS löschen | Vorsicht!! */
 #DELETE FROM boo.cats; -- Alle Daten sind weg!!
-DELETE FROM boo.cats WHERE id = 2; -- Filter
+#DELETE FROM boo.cats WHERE id = 2; -- Filter
 
 SELECT * FROM boo.cats;
 
