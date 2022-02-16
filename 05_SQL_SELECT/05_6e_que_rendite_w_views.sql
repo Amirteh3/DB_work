@@ -31,6 +31,57 @@ FROM stocks.ccc
 GROUP BY sector
 ;
 
-SELECT * FROM renditen_max;
+#SELECT * FROM renditen_max;
+
+-- Ergebnis-View: top_werte_im_sektor
+CREATE VIEW top_werte_im_sektor AS
+SELECT
+    -- Spalten aus Tab. t1 --> stocks.ccc
+   t1.sector AS "Industriesektor",
+   t1.ticker AS "SYM",
+   t1.c_name AS "Firma",
+   t1.price AS "Aktienkurs",
+   t1.dividend AS "Dividende",
+   -- Spalte aus Tab. t2 --> VIEW: renditen 
+   t2.rendite AS "Rendite p.a."
+FROM stocks.ccc AS t1
+-- Verknüpfen mit berechneten Renditen aus VIEW:renditen
+INNER JOIN renditen AS t2 
+ON t1.c_name = t2.c_name
+-- Verknüpfen mit max. Renditen je Sektor aus VIEW:renditen_max
+INNER JOIN renditen_max AS t3 
+ON t1.sector = t3.sector -- wenn gleicher Wert im Feld Sektor 
+AND t2.rendite = t3.rendite -- wenn Rendite = Max. Rendite im Sektor 
+ORDER BY t2.rendite DESC
+;
+
+SELECT * FROM top_werte_im_sektor;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
