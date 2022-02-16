@@ -20,7 +20,7 @@ SELECT
 	#industry AS "Branche"
 	CONCAT(sector, " | ", industry) AS "Operations"
 FROM stocks.ccc
-LIMIT 10 -- X Zeilen ab 0
+#LIMIT 10 -- X Zeilen ab 0
 #LIMIT 200,10 
 ;
 
